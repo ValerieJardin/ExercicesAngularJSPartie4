@@ -15,7 +15,8 @@ uniquement si la couleur n'est pas verte.
         <div ng-controller="carCtrl">
             <h1>Les voitures de couleur verte : </h1>
             <ul class="color">
-<!-- Déclaration de la directive ng-repeat qui va chercher les informations dans le tableau json -->
+<!-- Déclaration de la directive ng-repeat qui va chercher les informations dans le tableau json avec un filtre
+qui permet d'afficher toutes les info sauf si les voitures ont la couleur verte d'où la ponctuation '!'-->
                 <li ng-repeat = "color in lesVoitures | filter: color: color.couleur= '!' + 'verte'">
 <!-- Concaténation des 2 informations à récupérer -->
                     {{ color.marque  + " " + color.couleur }}
