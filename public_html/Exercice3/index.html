@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Faire une page HTML permettant d'afficher la liste des voitures et leur couleur du fichier 
+voiture.json uniquement si la couleur est verte.
+-->
+<html>
+    <head>
+        <title>Exercice 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    </head>
+    <body ng-app="car">
+        <!-- Déclaration du controlleur -->
+        <div ng-controller="carCtrl">
+            <h1>Les voitures de couleur verte : </h1>
+<!-- Déclaration d'une class pour permettre de positionner le filtre -->
+            <ul class="color">
+<!-- Déclaration de la directive ng-repeat qui va chercher les informations dans le tableau json avec 
+un filtre qui permet d'afficher que les voitures de couleur verte -->
+                <li ng-repeat = "color in lesVoitures | filter: color: color.couleur='verte'">
+<!-- Concaténation des 2 informations à récupérer -->
+                    {{ color.marque  + " " + color.couleur }}
+                </li>
+            </ul> 
+        </div>
+        <script>
+//Déclaration de la variable module        
+    var app = angular.module('car', []);
+//Déclaration de la fonction controller avec une fonction $scope et $http qui récupère le 
+//json par rapport à  son adresse
+            app.controller('carCtrl', function ($scope, $http) {
+//Déclaration de la fonction $http.get qui permet de récupérer le tableau json        
+        $http.get("voiture.json")
+                        .then(function (response) {
+                            $scope.lesVoitures = response.data;
+                        });
+            });
+        </script>       
+        <a href="../Exercice1/index.html">Exercice 1</a>
+        <a href="../Exercice2/index.html">Exercice 2</a>
+        <a href="../Exercice4/index.html">Exercice 4</a>
+    </body>
+</html>

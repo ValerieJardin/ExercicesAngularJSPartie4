@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+Faire une page HTML contenant un bouton + , un bouton - et un paragraphe. Au clic sur le bouton + incrémenter 
+le chiffre présent dans le paragraphe de 1. Au clic sur le bouton - décrémenter le chiffre de 1.
+-->
+<html>
+    <head>
+        <title>Exercice 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app>
+       <div>
+        <span>Click sur un bouton pour mettre en route le compteur :</span><br/>
+        <button ng-click="count = count + 1" ng-init="count=0">+</button>           
+        <button ng-click="count = count - 1" ng-init="count=0">-</button><br/> 
+        <p>Compteur :  {{ count }}</p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <a href="../Exercice2/index.html">Exercice 2</a>
+        <a href="../Exercice3/index.html">Exercice 3</a>
+        <a href="../Exercice4/index.html">Exercice 4</a>
+    </body>
+</html>
